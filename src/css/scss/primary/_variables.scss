@@ -1,0 +1,39 @@
+//imports from third party libraries
+@import url("https://fonts.googleapis.com/css2?family=Jersey+15&display=swap");
+
+// colors
+$background: #252525;
+
+// breakpoints
+$mobile: 576px; //breakpoint-sm
+$mobile-max: 575px; //breakpoint-sm-max
+$tablet: 768px; //breakpoint-md
+$tablet-max: 767px; //breakpoint-md-max
+$laptop: 992px; //breakpoint-lg
+$laptop-max: 991px; //breakpoint-lg-max
+$decktop: 1200px; //breakpoint-xl
+$desktop-max: 1199px; //breakpoint-xl-max
+$large: 1400px; //breakpoint-xxl
+
+//Line heights
+$lh-base: 1.2;
+$lh-sm: 1.28;
+$lh-lg: 1.65;
+
+//Font sizes
+$fs-base-mobile: 14px;
+$fs-base-desktop: 16px;
+
+$fs-xs: 0.75rem;
+$fs-s: 0.875rem;
+$fs-base: 1rem;
+$fs-m: 1.125rem;
+$fs-l: 1.25rem;
+$fs-xl: 1.5rem;
+$fs-xxl: 2rem;
+$fs-xxxl: 2.25rem;
+$fs-xxxxl: 2.5rem;
+
+//Font family
+$ff-main: "Jersey 15", regular;
+$fw-main: 400;
