@@ -5,7 +5,10 @@ const Login = () => {
   // const { user } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
+    nickname: "",
+    role: "",
     password: "",
+    confirmPassword: "",
   });
   
 // Універсальний обробник змін для будь-якого інпуту
@@ -34,6 +37,14 @@ const Login = () => {
         <form action="#" onSubmit={handleSubmit}>
           <input
             type="text"
+            name="nickname"
+            value={formData.nickname}
+            onChange={handleChange}
+            placeholder="Nickname"
+            autoComplete="off"
+          />
+          <input
+            type="text"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -47,12 +58,19 @@ const Login = () => {
             onChange={handleChange}
             placeholder="Password"
           />
+          <input
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            placeholder="Confirm Password"
+          />
           <button type="submit" onClick={bigCat} className={`link logreg__btn ${isClicked ? "_active" : ""}`}>
-            Login
+            Register
           </button>
         </form>
         <div className="logreg__hint">
-          Don’t have an account? <a className="logreg__link" href="/register">Register now</a>
+          Already have an account? <a className="logreg__link" href="/login">Login now</a>
           </div>
       </div>
     </div>

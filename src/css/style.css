@@ -12103,11 +12103,11 @@ body {
 }
 .app-container .header,
 .app-container .footer {
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   width: 100%;
 }
 .app-container main {
-  margin: 65px;
+  margin: 65px 0 0 0;
 }
 .app-container .content {
   flex: 1 1 auto;
@@ -12149,10 +12149,10 @@ body {
 
 .header {
   display: block;
-  background: rgba(0, 123, 194, 0.1019607843);
+  background: rgba(0, 123, 194, 0.4352941176);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  color: white;
+  color: #ffffff;
   height: 65px;
   width: 100%;
   top: 0;
@@ -12213,7 +12213,7 @@ body {
   align-items: center;
 }
 .header .nav ul li {
-  transition: all 0.05s ease;
+  transition: all 0.1s ease;
   width: 100%;
   padding: 5px 0;
   transform: scale(1);
@@ -12226,22 +12226,23 @@ body {
   display: block;
 }
 .header .nav ul li:hover {
-  transform: scale(1.15);
+  font-size: 2rem;
   text-shadow: #007bc2 0 0 20px;
   opacity: 1;
   z-index: 2;
 }
 .header .nav ul:has(li:hover) li {
-  transform: scale(0.95);
+  font-size: 0.875rem;
   opacity: 0.6;
 }
 .header .nav ul:has(li:hover) li:hover {
-  transform: scale(1.15);
+  font-size: 1.25rem;
   opacity: 1;
 }
 .header .nav ul:has(li:hover) li:hover + li,
 .header .nav ul:has(li:hover) li:has(+ li:hover) {
   transform: scale(1.05);
+  font-size: 1.25rem;
   opacity: 0.8;
 }
 .header .nav--open {
@@ -12352,6 +12353,7 @@ body {
   background-color: #e3e631;
   color: #007bc2;
   min-height: 200px;
+  max-height: 200px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -12591,7 +12593,7 @@ body {
   align-items: center;
   justify-content: flex-start;
   gap: 25px;
-  margin-top: 80px;
+  margin: 80px 0 60px;
 }
 .home__block {
   max-width: 1320px;
@@ -12630,6 +12632,68 @@ body {
   border-radius: 10px;
   overflow: hidden;
   flex: 0 0 auto;
+}
+.home__img.waving {
+  animation: waving-boi 0.8s ease-in-out infinite;
+}
+@keyframes waving-boi {
+  0%, 100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+}
+.home__img.jump {
+  animation: jumpy-boi 0.6s ease-in-out infinite;
+}
+@keyframes jumpy-boi {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.home__img.bounce-scale {
+  animation: bounce-scale-boi 0.7s ease-in-out infinite;
+}
+@keyframes bounce-scale-boi {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.1) translateY(-10px);
+  }
+}
+.home__img.bouncy-wiggle {
+  animation: bouncy-wiggle-boi 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+@keyframes bouncy-wiggle-boi {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-6px, -4px);
+  }
+  25% {
+    transform: translate(8px, -8px);
+  }
+  40% {
+    transform: translate(-10px, -5px);
+  }
+  55% {
+    transform: translate(6px, -2px);
+  }
+  70% {
+    transform: translate(-4px, -6px);
+  }
+  85% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 .home__img img {
   width: 100%;
@@ -12686,12 +12750,119 @@ body {
   }
 }
 
-.home logreg__popup {
+.home.logreg {
+  min-height: calc(100vh - 200px);
+}
+.home .logreg__title {
+  color: #e3e631;
+}
+.home .logreg__popup {
   max-width: 500px;
   width: 100%;
+  min-height: 580px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5333333333);
+  background-color: rgba(0, 0, 0, 0.2666666667);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  border-radius: 10px 20px;
+  padding: 30px;
+}
+.home .logreg__popup form {
+  flex: 1 1 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  gap: 20px;
+}
+.home .logreg__popup form input {
+  width: 100%;
+  max-width: 80%;
+  background-color: rgba(0, 0, 0, 0);
+  color: #e3e631;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ffffff;
+  font-size: 1.25rem;
+  padding: 3px 10px;
+  transition: all 0.3s ease;
+}
+.home .logreg__popup form input::-moz-placeholder {
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #e3e631;
+}
+.home .logreg__popup form input::placeholder {
+  transition: all 0.5s ease;
+  color: #e3e631;
+}
+.home .logreg__popup form input:hover {
+  max-width: 85%;
+  transform: scale(1.05);
+}
+.home .logreg__popup form input:focus {
+  border-bottom: 3px solid #007bc2;
+  transform: scale(1.05);
+  max-width: 100%;
+}
+.home .logreg__popup form input:focus::-moz-placeholder {
+  opacity: 0.5;
+}
+.home .logreg__popup form input:focus::placeholder {
+  opacity: 0.5;
+}
+.home .logreg__btn {
+  justify-self: flex-end;
+  background-color: rgba(0, 0, 0, 0.2666666667);
+  max-width: 200px;
+  padding: 8px;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  transition: all 0.5s ease-in-out, position 1s ease-in-out, background-image 1s ease-in-out, background-repeat 1s ease-in-out, background-position 1s ease-in-out, background-size 1s ease-in-out, width 1s ease-in-out, height 1s ease-in-out, max-width 1s ease-in-out;
+}
+.home .logreg__btn:hover {
+  background-color: #e3e631;
+  color: #007bc2;
+  box-shadow: 0 0 20px #007bc2, 0 0 10px #007bc2 inset;
+  transform: scale(1);
+  font-size: 2.25rem;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  max-width: 200px;
+  padding: 0;
+  z-index: 998;
+}
+.home .logreg__btn._active {
+  transition: all 0.1s ease-in-out, position 0.1s ease-in-out, background-image 0s ease-in-out, background-repeat 0.1s ease-in-out, background-position 0.1s ease-in-out, background-size 0.1s ease-in-out, width 0.1s ease-in-out, height 0.1s ease-in-out, max-width 0.1s ease-in-out;
+  background-color: #007bc2;
+  position: absolute;
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  color: rgba(0, 0, 0, 0);
+  background-image: url("../assets/ico/cat-gray.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.home .logreg__hint {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.home .logreg__link {
+  color: #007bc2;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 20px #252525;
+}
+.home .logreg__link:hover {
+  font-size: 1.5rem;
+  text-shadow: 0 0 10px #252525;
 }

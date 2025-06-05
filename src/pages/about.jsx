@@ -1,4 +1,7 @@
 import catLogo from '../assets/ico/cat-gray.svg';
+import catLogoP from '../assets/ico/cat-purple.svg';
+import catLogoO from '../assets/ico/cat-orange.svg';
+import catLogoW from '../assets/ico/cat-white.svg';
 
 const About = () => {
   return (
@@ -21,7 +24,7 @@ const About = () => {
         <section className="py-5">
           <div className="container">
             <h2 className="mb-4 text-center">Our Mission</h2>
-            <p className="text-center">
+            <p className="text-center lead">
               We believe learning should be fun, social, and available to everyone. <br />
               THYNK is here to transform boring studying into something exciting, meaningful, and joyful.
             </p>
@@ -32,7 +35,7 @@ const About = () => {
         <section className="py-5">
           <div className="container">
             <h2 className="text-center mb-5">How We Work</h2>
-            <div className="row text-center">
+            <div className="row text-center d-flex justify-content-center">
               <div className="col-md-3">
                 <h4>🎯 Goal-based</h4>
                 <p>Track your own path and see results</p>
@@ -57,21 +60,26 @@ const About = () => {
         <section className="py-5">
           <div className="container">
             <h2 className="text-center mb-5">Meet the Team</h2>
-            <div className="row text-center">
-              <div className="col-md-4">
+            <div className="row text-center d-flex justify-content-center">
+              <div className="col-md-2 bg-warning">
                 <img src={catLogo} alt={catLogo}/>
-                <h5>Artemiy</h5>
+                <h5>Artemii</h5>
                 <p>Founder & CTO</p>
               </div>
-              <div className="col-md-4">
-                <img src={catLogo} alt={catLogo}/>
-                <h5>Vasyl Syn'ko</h5>
+              <div className="col-md-2 bg-success">
+                <img src={catLogoO} alt={catLogoO}/>
+                <h5>Vasyl</h5>
                 <p>UX Witch & Love Officer</p>
               </div>
-              <div className="col-md-4">
-                <img src={catLogo} alt={catLogo}/>
-                <h5>John Doe</h5>
-                <p>UX Witch & Love Officer</p>
+              <div className="col-md-2 bg-primary">
+                <img src={catLogoW} alt={catLogoW}/>
+                <h5>Misha</h5>
+                <p>Productive SEO</p>
+              </div>
+              <div className="col-md-2  bg-secondary">
+                <img src={catLogoP} alt={catLogoP}/>
+                <h5>Marian</h5>
+                <p>Creative Designer</p>
               </div>
             </div>
           </div>
@@ -82,21 +90,29 @@ const About = () => {
           <div className="container">
             <h2 className="text-center mb-4">What Our Users Say</h2>
             <div className="row">
-              <div className="col-md-6">
+              <div className="col-md-4">
                 <blockquote className="blockquote">
                   <p>
                     “I never thought I’d enjoy studying like this. THYNK made me fall in love
                     with learning again!”
                   </p>
-                  <footer className="blockquote-footer">Alyona, student</footer>
+                  <footer className="blockquote-footer">Nastia, student</footer>
                 </blockquote>
               </div>
-              <div className="col-md-6">
+              <div className="col-md-4">
                 <blockquote className="blockquote">
                   <p>
-                    “The friend system is genius. I come back every day just to beat my friends 😈”
+                    “The friend system is genius. I come back every day just to beat my friends”
                   </p>
-                  <footer className="blockquote-footer">Maksym, developer</footer>
+                  <footer className="blockquote-footer">Kolya, developer</footer>
+                </blockquote>
+              </div>
+              <div className="col-md-4">
+                <blockquote className="blockquote">
+                  <p>
+                    “Напевно, це найкращий сервіс з таким дизайном та класними ШРИФТАМИ, дякую за кирилицю {'<'}3”
+                  </p>
+                  <footer className="blockquote-footer">John Doe, who are me?</footer>
                 </blockquote>
               </div>
             </div>

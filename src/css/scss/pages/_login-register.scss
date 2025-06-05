@@ -1,15 +1,131 @@
 .home {
 	&.logreg {
+		min-height: calc(100vh - 200px);
 	}
-	logreg {
+	.logreg {
+		&__title {
+			color: $c-secondary;
+		}
 		&__popup {
 			max-width: 500px;
 			width: 100%;
+			min-height: 580px;
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
 			align-items: center;
 			background-color: $c-dimmed;
+			backdrop-filter: blur(20px);
+			border-radius: 10px 20px;
+			padding: 30px;
+			form {
+				flex: 1 1 auto;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-evenly;
+				padding: 20px;
+				gap: 20px;
+				input {
+					width: 100%;
+					max-width: 80%;
+					background-color: #0000;
+					color: $c-secondary;
+					border: none;
+					outline: none;
+					border-bottom: 2px solid $white;
+					font-size: $fs-l;
+					padding: 3px 10px;
+					transition: all 0.3s ease;
+					&::placeholder {
+						transition: all 0.5s ease;
+						color: $c-secondary;
+					}
+					&:hover {
+						max-width: 85%;
+						transform: scale(1.05);
+					}
+					&:focus {
+						border-bottom: 3px solid $c-main;
+						transform: scale(1.05);
+
+						max-width: 100%;
+						&::placeholder {
+							opacity: 0.5;
+						}
+					}
+				}
+			}
+		}
+		&__btn {
+			justify-self: flex-end;
+			background-color: $c-dimmed;
+			max-width: 200px;
+			padding: 8px;
+			border-radius: 10px;
+			font-size: $fs-l;
+			transition:
+				all 0.5s ease-in-out,
+				position 1s ease-in-out,
+				background-image 1s ease-in-out,
+				background-repeat 1s ease-in-out,
+				background-position 1s ease-in-out,
+				background-size 1s ease-in-out,
+				width 1s ease-in-out,
+				height 1s ease-in-out,
+				max-width 1s ease-in-out;
+			&:hover {
+				background-color: $c-secondary;
+				color: $c-main;
+				box-shadow:
+					0 0 20px $c-main,
+					0 0 10px $c-main inset;
+				transform: scale(1);
+				font-size: $fs-xxxl;
+				min-width: fit-content;
+				max-width: 200px;
+				padding: 0;
+				z-index: 998;
+			}
+			&._active {
+				transition:
+					all 0.1s ease-in-out,
+					position 0.1s ease-in-out,
+					background-image 0s ease-in-out,
+					background-repeat 0.1s ease-in-out,
+					background-position 0.1s ease-in-out,
+					background-size 0.1s ease-in-out,
+					width 0.1s ease-in-out,
+					height 0.1s ease-in-out,
+					max-width 0.1s ease-in-out;
+				background-color: $c-main;
+				position: absolute;
+				width: 100vw;
+				max-width: none;
+				height: 100vh;
+				color: #0000;
+				background-image: url("../assets/ico/cat-gray.svg");
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+		}
+		&__hint {
+			font-size: $fs-l;
+			color: $white;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		&__link {
+			color: $c-main;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			text-shadow: 0 0 20px $background;
+			&:hover {
+				font-size: $fs-xl;
+				text-shadow: 0 0 10px $background;
+			}
 		}
 	}
 }

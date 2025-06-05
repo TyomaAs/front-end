@@ -1,4 +1,8 @@
 import { ReactComponent as ArrowDown } from '../assets/ico/arrow.svg';
+import catLogo from '../assets/ico/cat-gray.svg';
+import catLogoP from '../assets/ico/cat-purple.svg';
+import catLogoO from '../assets/ico/cat-orange.svg';
+import catLogoW from '../assets/ico/cat-white.svg';
 
 
 const Home = () => {
@@ -11,8 +15,8 @@ const Home = () => {
         </div>
         <div className="home__list">
           <div className="home__block">
-            <div className="home__img">
-              <img src="https://picsum.photos/400/300?random=1" alt="Random" />
+            <div className="home__img jump">
+              <img src={catLogo} alt={catLogo}/>
             </div>
             <div className="home__text">
               <div className="home__text-title green">Let’s play with us!</div>
@@ -27,8 +31,8 @@ const Home = () => {
             </div>
           </div>
           <div className="home__block image-right">
-            <div className="home__img">
-              <img src="https://picsum.photos/300/400?random=1" alt="Random" />
+            <div className="home__img waving">
+              <img src={catLogoW} alt={catLogoW}/>
             </div>
             <div className="home__text">
               <div className="home__text-title orange">We make your study is interesting :)</div>
@@ -44,8 +48,8 @@ const Home = () => {
             </div>
           </div>
           <div className="home__block">
-            <div className="home__img">
-              <img src="https://picsum.photos/300/300?random=1" alt="Random" />
+            <div className="home__img bounce-scale">
+              <img src={catLogoO} alt={catLogoO}/>
             </div>
             <div className="home__text">
               <div className="home__text-title blue">Study with friends ^^</div>
@@ -60,8 +64,8 @@ const Home = () => {
             </div>
           </div>
           <div className="home__block image-right">
-            <div className="home__img">
-              <img src="https://picsum.photos/400/400?random=1" alt="Random" />
+            <div className="home__img bouncy-wiggle">
+              <img src={catLogoP} alt={catLogoP}/>
             </div>
             <div className="home__text">
               <div className="home__text-title red">Free plan can use anyone :D</div>

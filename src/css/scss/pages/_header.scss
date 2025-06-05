@@ -2,7 +2,7 @@
 	display: block;
 	background: $c-main-opacity;
 	backdrop-filter: blur(10px);
-	color: white;
+	color: $white;
 	height: 65px;
 	width: 100%;
 	top: 0;
@@ -65,7 +65,7 @@
 			align-items: center;
 
 			li {
-				transition: all 0.05s ease;
+				transition: all 0.1s ease;
 				width: 100%;
 				padding: 5px 0;
 				transform: scale(1);
@@ -79,28 +79,30 @@
 				}
 
 				&:hover {
-					transform: scale(1.15);
+					// transform: scale(1.15);
+					font-size: $fs-xxl;
 					text-shadow: $c-main 0 0 20px;
 					opacity: 1;
 					z-index: 2;
 				}
 			}
-
-			// Наводимось на будь-який li
 			&:has(li:hover) {
 				li {
-					transform: scale(0.95);
+					// transform: scale(0.95);
+					font-size: $fs-s;
 					opacity: 0.6;
 				}
 
 				li:hover {
-					transform: scale(1.15);
+					// transform: scale(1.15);
+					font-size: $fs-l;
 					opacity: 1;
 				}
 
 				li:hover + li,
 				li:has(+ li:hover) {
 					transform: scale(1.05);
+					font-size: $fs-l;
 					opacity: 0.8;
 				}
 			}
