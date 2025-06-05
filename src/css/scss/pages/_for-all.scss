@@ -1,3 +1,119 @@
+*,
+*::after,
+*::before {
+	font-family: $ff-main;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background-color: $background;
+	color: $white;
+	font-size: $fs-base-desktop;
+}
+
+.link {
+	display: block;
+	position: relative;
+	min-width: 25%;
+	width: 100%;
+	max-width: 100%;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+	color: $c-secondary;
+
+	&.brd {
+		padding: 5px 40px;
+		border-radius: 20px;
+		background-color: $c-secondary-element;
+		min-width: 200px;
+		border: none;
+	}
+	&::after,
+	&::before {
+		display: block;
+		content: "";
+		width: 6px;
+		height: 10px;
+		background: $c-secondary;
+		mask-image: url("../assets/ico/triangle.svg");
+		-webkit-mask-image: url("../assets/ico/triangle.svg");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		position: absolute;
+	}
+	&::after {
+		left: 20px;
+		top: 50%;
+		top: calc(50% - $fs-base-desktop/4);
+	}
+	&::before {
+		right: 20px;
+		top: calc(50% - $fs-base-desktop/4);
+		transform: rotate(180deg);
+	}
+}
+.link-blue {
+	color: $c-main;
+	position: relative;
+
+	&::before {
+		display: block;
+		content: "";
+		width: 6px;
+		height: 10px;
+		background: $c-secondary, url("../assets/ico/triangleBlue.svg");
+		// mask-image: url("../assets/ico/triangleBlue.svg");
+		// -webkit-mask-image: url("../assets/ico/triangleBlue.svg");
+		mask-size: contain;
+		mask-repeat: no-repeat;
+		position: absolute;
+		left: 5px;
+		top: calc(50% - $fs-base-desktop/4);
+	}
+}
+
+.app-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100vw;
+	height: 100vh;
+	.header,
+	.footer {
+		flex: 1 1 auto;
+		width: 100%;
+	}
+	main {
+		margin: 65px;
+	}
+	.content {
+		flex: 1 1 auto;
+		width: 100%;
+		.content__div {
+			width: 100%;
+			height: 100%;
+		}
+		.container {
+			padding: 0;
+			margin: 0 auto;
+			@media screen and (width <= 1400px) {
+				max-width: 1200px;
+			}
+			@media screen and (width <= 1200px) {
+				max-width: 1024px;
+			}
+			@media screen and (width <= 1024px) {
+				max-width: 768px;
+			}
+			@media screen and (width <= 768px) {
+				max-width: 450px;
+			}
+			@media screen and (width <= 450px) {
+				max-width: 320px;
+			}
+		}
+	}
 }

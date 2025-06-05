@@ -1,0 +1,30 @@
+.notfound {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+	gap: 10px;
+	color: $white;
+}
+.notfound__title {
+	font-size: $fs-xxxxl;
+}
+.notfound__link {
+	font-size: $fs-xl;
+	max-width: 300px;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		color: $c-main;
+		transform-style: preserve-3d;
+		padding: 1rem 2rem;
+		background: linear-gradient(135deg, $c-main, $c-secondary);
+		background-size: 200%;
+		background-position: center;
+		border-radius: 12px;
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+	}
+}

@@ -1,0 +1,6 @@
+.container {
+	@media screen and (max-width: $mobile-max) {
+		width: 100%;
+		max-width: 100%;
+	}
+}

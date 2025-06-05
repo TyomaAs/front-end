@@ -1,0 +1,222 @@
+.header {
+	display: block;
+	background: $c-main-opacity;
+	backdrop-filter: blur(10px);
+	color: white;
+	height: 65px;
+	width: 100%;
+	top: 0;
+	z-index: 999;
+	position: fixed;
+
+	.container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		margin: 0 auto;
+		min-height: 65px;
+		margin: auto;
+		padding: 0 15px;
+		position: relative;
+	}
+
+	.header__title {
+		font-size: 2.5rem;
+		color: $c-secondary;
+		text-shadow:
+			$black 0 0 10px,
+			4px 4px 4px #0004;
+		user-select: none;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		&:hover {
+			text-shadow:
+				$c-main 0 0 20px,
+				4px 4px 4px #0004;
+			cursor: pointer;
+			transform: scale(1.1);
+		}
+	}
+
+	.nav {
+		position: absolute;
+		top: 3.2rem;
+		right: 20px;
+		backdrop-filter: blur(10px);
+		background-color: $c-main;
+		border-radius: 12px;
+		width: 150px;
+		transform: translateY(-350px);
+		transform-origin: top;
+		transition: all 0.25s ease;
+		min-width: max-content;
+		z-index: 999;
+		padding: 20px 0;
+		opacity: 0;
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			li {
+				transition: all 0.05s ease;
+				width: 100%;
+				padding: 5px 0;
+				transform: scale(1);
+				opacity: 0.85;
+
+				a {
+					color: $c-secondary;
+					text-decoration: none;
+					white-space: nowrap;
+					display: block;
+				}
+
+				&:hover {
+					transform: scale(1.15);
+					text-shadow: $c-main 0 0 20px;
+					opacity: 1;
+					z-index: 2;
+				}
+			}
+
+			// Наводимось на будь-який li
+			&:has(li:hover) {
+				li {
+					transform: scale(0.95);
+					opacity: 0.6;
+				}
+
+				li:hover {
+					transform: scale(1.15);
+					opacity: 1;
+				}
+
+				li:hover + li,
+				li:has(+ li:hover) {
+					transform: scale(1.05);
+					opacity: 0.8;
+				}
+			}
+		}
+
+		&--open {
+			display: block;
+			transform: translateY(20px);
+			opacity: 0.8;
+			&:hover {
+				opacity: 1;
+				backdrop-filter: blur(20px);
+				// box-shadow: $c-main 0 0 20px;
+				transform: scale(1.2);
+			}
+		}
+	}
+
+	.burger {
+		position: absolute;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		width: 40px;
+		height: 24px;
+		cursor: pointer;
+		z-index: 1001;
+		transition: all 0.3s ease;
+		&__line {
+			width: 100%;
+			height: 4px;
+			border-radius: 1px 2px;
+			background-color: $c-secondary;
+			transition: all 0.3s ease;
+		}
+		&:hover {
+			transform: scale(1.1);
+			&__line {
+				opacity: 1;
+			}
+		}
+		@media screen and (max-width: $mobile-max) {
+			right: 15px;
+		}
+	}
+
+	&__logreg {
+		position: absolute;
+		right: 60px;
+		align-self: center;
+		display: block;
+		width: 100px;
+		height: 36px;
+		background-color: $c-secondary;
+		color: $black;
+		text-align: center;
+		line-height: 2.2rem;
+		border-radius: 20px 10px;
+		font-size: $fs-m;
+		transition:
+			all 0.3s ease,
+			transform 0.5s ease,
+			box-shadow 0.5s ease 0s;
+		cursor: pointer;
+		&:hover {
+			background-color: $c-secondary-element;
+			color: $white;
+			transform: scale(1.2);
+			box-shadow: $white 0 0 10px;
+			transition:
+				all 0.3s ease,
+				transform 0.3s ease,
+				box-shadow 0.3s ease;
+		}
+		@media screen and (max-width: $mobile-max) {
+			left: 15px;
+		}
+	}
+
+	&__avatar {
+		&-link {
+			border-radius: 50%;
+			display: flex;
+			right: 60px;
+			position: absolute;
+			@media screen and (max-width: $mobile-max) {
+				left: 15px;
+			}
+		}
+		width: 40px;
+		height: 40px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		border-radius: 50%;
+		// justify-self: right;
+		background-color: $c-secondary;
+		color: $black;
+		transition:
+			all 0.3s ease,
+			transform 0.5s ease,
+			box-shadow 0.5s ease 0s;
+		cursor: pointer;
+		&:hover {
+			background-color: $c-main;
+			color: $white;
+			transform: scale(1.2);
+			box-shadow: $white 0 0 10px;
+			transition:
+				all 0.3s ease,
+				transform 1.5s ease,
+				box-shadow 0.5s ease 0.5s;
+		}
+	}
+}

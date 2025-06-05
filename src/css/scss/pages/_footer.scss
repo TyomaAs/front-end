@@ -1,0 +1,168 @@
+.footer {
+	position: relative;
+	background-color: $c-secondary;
+	color: $c-main;
+	min-height: 200px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		margin: 0 auto;
+		max-height: 100%;
+		gap: 30px;
+		user-select: none;
+	}
+
+	&__title {
+		font-size: 2.5rem;
+		color: $c-main;
+		text-shadow: #0004 4px 4px 4px;
+	}
+	&__copyright {
+		overflow: auto;
+		position: relative;
+		font-size: $fs-base-desktop;
+		&.both-triangles-blue {
+			position: relative;
+			&::after,
+			&::before {
+				display: block;
+				background: $c-main;
+				content: "";
+				width: 6px;
+				height: 10px;
+				mask-image: url("../assets/ico/triangleBlue.svg");
+				-webkit-mask-image: url("../assets/ico/triangleBlue.svg");
+				mask-size: contain;
+				mask-repeat: no-repeat;
+				position: absolute;
+				z-index: 999;
+			}
+			&::after {
+				right: -15px;
+				top: calc(50% - $fs-base-desktop/4);
+				transform: rotate(180deg);
+			}
+			&::before {
+				left: -15px;
+				top: calc(50% - $fs-base-desktop/4);
+			}
+		}
+	}
+	&__nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 20px;
+		font-size: $fs-l;
+	}
+	&__link {
+		transition: all 0.3s ease;
+
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.15);
+		}
+	}
+	&__socials {
+		position: absolute;
+		bottom: calc(50% - 50px);
+		left: 0;
+		&-links {
+			transition: all 0.5s ease;
+			display: flex;
+			flex-direction: row;
+			gap: 15px;
+			border-radius: 50%;
+			&.inst {
+				&:hover {
+					box-shadow:
+						0 0 20px #e33cf3,
+						0 0 10px #e33cf3 inset;
+					transform: scale(1.1);
+				}
+			}
+			&.disc {
+				&:hover {
+					box-shadow:
+						0 0 20px #7e53f6,
+						0 0 10px #7e53f6 inset;
+					transform: scale(1.1);
+				}
+			}
+			&.teleg {
+				&:hover {
+					box-shadow:
+						0 0 20px #49a9f8,
+						0 0 10px #49a9f8 inset;
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+	&__sources {
+		position: absolute;
+		bottom: calc(50% - 50px);
+		right: 0;
+		transition: all 0.25s ease;
+		&-links {
+			display: flex;
+			gap: 15px;
+			border-radius: 50%;
+			transition: all 0.5s ease;
+
+			&.github {
+				&:hover {
+					box-shadow:
+						0 0 20px $white,
+						0 0 10px $white inset;
+					transform: scale(1.1);
+				}
+			}
+			&.figma {
+				&:hover {
+					box-shadow:
+						0 0 20px $white,
+						0 0 10px $white inset;
+					transform: scale(1.1);
+				}
+			}
+		}
+	}
+	&__sources,
+	&__socials {
+		color: $white;
+		font-size: $fs-xl;
+		background-color: $c-secondary-element;
+		border-radius: 10px;
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: center;
+	}
+}
+.left-triangle-blue {
+	&::before {
+		position: absolute;
+		left: -15px;
+		top: calc(50% - $fs-base / 4);
+		display: block;
+		content: "";
+		width: 6px;
+		height: 10px;
+		// mask-image: url("./../assets/ico/triangle-blue.svg");
+		// -webkit-mask-image: url("../assets/ico/triangle-blue.svg");
+		// mask-size: contain;
+		// mask-repeat: no-repeat;
+		z-index: 999;
+	}
+}
