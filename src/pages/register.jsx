@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 // import { useAuth } from "../contexts/AuthContext";
+ import triangle from "../assets/ico/triangleBlue.svg";
 
 const Login = () => {
   // const { user } = useAuth();
@@ -33,7 +34,7 @@ const Login = () => {
   return (
     <div className="home logreg">
       <div className="logreg__popup">
-        <h1 className="logreg__title">Log In</h1>
+        <h1 className="logreg__title">Register</h1>
         <form action="#" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -42,6 +43,7 @@ const Login = () => {
             onChange={handleChange}
             placeholder="Nickname"
             autoComplete="off"
+            tabIndex={1}
           />
           <input
             type="text"
@@ -50,13 +52,31 @@ const Login = () => {
             onChange={handleChange}
             placeholder="E-mail"
             autoComplete="off"
+            tabIndex={2}
           />
+          <div className="logreg__select">
+            <select
+              id="role"
+              name="role"
+              className="logreg__select-custom"
+              value={formData.role}
+              onChange={handleChange}
+              plaseholder="Role"
+              tabIndex={3}
+            >
+              <option value="">Role</option>
+              <option value="learner">Learner</option>
+              <option value="teacher">Teacher</option>
+            </select>
+            <img src={triangle} alt="▼" className="custom-arrow" style={{ transform: 'rotate(180deg)' }}/>
+          </div>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
             placeholder="Password"
+            tabIndex={4}
           />
           <input
             type="password"
@@ -64,13 +84,14 @@ const Login = () => {
             value={formData.confirmPassword}
             onChange={handleChange}
             placeholder="Confirm Password"
+            tabIndex={5}
           />
-          <button type="submit" onClick={bigCat} className={`link logreg__btn ${isClicked ? "_active" : ""}`}>
+          <button type="submit" onClick={bigCat} className={`link logreg__btn ${isClicked ? "_active" : ""}`} tabIndex={6}>
             Register
           </button>
         </form>
         <div className="logreg__hint">
-          Already have an account? <a className="logreg__link" href="/login">Login now</a>
+          Already have an account? <a className="logreg__link" href="/login" tabIndex={7}>Login now</a>
           </div>
       </div>
     </div>

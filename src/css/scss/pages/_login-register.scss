@@ -5,6 +5,7 @@
 	.logreg {
 		&__title {
 			color: $c-secondary;
+			user-select: none;
 		}
 		&__popup {
 			max-width: 500px;
@@ -27,7 +28,8 @@
 				justify-content: space-evenly;
 				padding: 20px;
 				gap: 20px;
-				input {
+				input,
+				select {
 					width: 100%;
 					max-width: 80%;
 					background-color: #0000;
@@ -41,6 +43,7 @@
 					&::placeholder {
 						transition: all 0.5s ease;
 						color: $c-secondary;
+						user-select: none;
 					}
 					&:hover {
 						max-width: 85%;
@@ -116,6 +119,7 @@
 			color: $white;
 			margin-bottom: 20px;
 			text-align: center;
+			user-select: none;
 		}
 		&__link {
 			color: $c-main;
@@ -125,6 +129,35 @@
 			&:hover {
 				font-size: $fs-xl;
 				text-shadow: 0 0 10px $background;
+			}
+		}
+		&__select {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			max-width: 100%;
+			position: relative;
+			user-select: none;
+			&-custom {
+				appearance: none;
+				background: transparent;
+				border: none;
+				border-bottom: 3px solid $white;
+				width: 100%;
+				padding: 0.5rem 2rem 0.5rem 0;
+				color: $white;
+				font-size: 1rem;
+				font-family: inherit;
+				cursor: pointer;
+			}
+			img {
+				width: 6px;
+				height: 10px;
+				position: absolute;
+				top: 40%;
+				right: 10%;
 			}
 		}
 	}

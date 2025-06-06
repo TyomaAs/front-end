@@ -12755,6 +12755,9 @@ body {
 }
 .home .logreg__title {
   color: #e3e631;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .home .logreg__popup {
   max-width: 500px;
@@ -12780,7 +12783,8 @@ body {
   padding: 20px;
   gap: 20px;
 }
-.home .logreg__popup form input {
+.home .logreg__popup form input,
+.home .logreg__popup form select {
   width: 100%;
   max-width: 80%;
   background-color: rgba(0, 0, 0, 0);
@@ -12792,28 +12796,37 @@ body {
   padding: 3px 10px;
   transition: all 0.3s ease;
 }
-.home .logreg__popup form input::-moz-placeholder {
+.home .logreg__popup form input::-moz-placeholder, .home .logreg__popup form select::-moz-placeholder {
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
   color: #e3e631;
+  -moz-user-select: none;
+       user-select: none;
 }
-.home .logreg__popup form input::placeholder {
+.home .logreg__popup form input::placeholder,
+.home .logreg__popup form select::placeholder {
   transition: all 0.5s ease;
   color: #e3e631;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
-.home .logreg__popup form input:hover {
+.home .logreg__popup form input:hover,
+.home .logreg__popup form select:hover {
   max-width: 85%;
   transform: scale(1.05);
 }
-.home .logreg__popup form input:focus {
+.home .logreg__popup form input:focus,
+.home .logreg__popup form select:focus {
   border-bottom: 3px solid #007bc2;
   transform: scale(1.05);
   max-width: 100%;
 }
-.home .logreg__popup form input:focus::-moz-placeholder {
+.home .logreg__popup form input:focus::-moz-placeholder, .home .logreg__popup form select:focus::-moz-placeholder {
   opacity: 0.5;
 }
-.home .logreg__popup form input:focus::placeholder {
+.home .logreg__popup form input:focus::placeholder,
+.home .logreg__popup form select:focus::placeholder {
   opacity: 0.5;
 }
 .home .logreg__btn {
@@ -12855,6 +12868,9 @@ body {
   color: #ffffff;
   margin-bottom: 20px;
   text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .home .logreg__link {
   color: #007bc2;
@@ -12865,4 +12881,37 @@ body {
 .home .logreg__link:hover {
   font-size: 1.5rem;
   text-shadow: 0 0 10px #252525;
+}
+.home .logreg__select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.home .logreg__select-custom {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #ffffff;
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.home .logreg__select img {
+  width: 6px;
+  height: 10px;
+  position: absolute;
+  top: 40%;
+  right: 10%;
 }

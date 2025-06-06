@@ -39,6 +39,7 @@ const Login = () => {
             onChange={handleChange}
             placeholder="E-mail"
             autoComplete="off"
+            tabIndex={1}
           />
           <input
             type="password"
@@ -46,13 +47,14 @@ const Login = () => {
             value={formData.password}
             onChange={handleChange}
             placeholder="Password"
+            tabIndex={2}
           />
-          <button type="submit" onClick={bigCat} className={`link logreg__btn ${isClicked ? "_active" : ""}`}>
+          <button type="submit" onClick={bigCat} className={`link logreg__btn ${isClicked ? "_active" : ""}`} tabIndex={3}>
             Login
           </button>
         </form>
         <div className="logreg__hint">
-          Don’t have an account? <a className="logreg__link" href="/register">Register now</a>
+          Don’t have an account? <a className="logreg__link" href="/register" tabIndex={4}>Register now</a>
           </div>
       </div>
     </div>
