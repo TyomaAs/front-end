@@ -7,9 +7,9 @@ const Profile = () => {
 
   return (
     <div className="container py-5">
-      <div className="card mx-auto shadow-lg" style={{ maxWidth: "600px" }}>
+      <div className="card mx-auto shadow-lg  bg-light" style={{ maxWidth: "600px" }}>
         <div className="card-body text-center">
-          <img src={catLogo} alt={catLogo}/>
+          <img src={catLogo} alt={catLogo} />
           <h3 className="card-title">{user?.name || "Your Name"}</h3>
           <p className="text-muted mb-1">{user?.email || "example@mail.com"}</p>
           <p className="text-muted">Member of THYNK</p>

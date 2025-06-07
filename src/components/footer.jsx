@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ReactComponent as LogoDiscord } from '../assets/ico/dicord.svg';
 import { ReactComponent as LogoInstagram } from '../assets/ico/instagram.svg';
 import { ReactComponent as LogoTelegram } from '../assets/ico/telegram.svg';
@@ -11,12 +12,12 @@ return (
 					<div className="footer__title">THYNK</div>
 					<div className="footer__nav">
 						<div className="footer__link link-blue">
-							<a href="/" className='footer_link-a'>Main</a>
+							<Link to="/" className='footer_link-a'>Main</Link>
 						</div>
-						<div className="footer__link left-triangle-blue"><a href="/about" className='footer_link-a'>About</a></div>
-						<div className="footer__link left-triangle-blue"><a href="https://t.me/thynkcommunity" className='footer_link-a'>Community</a></div>
-						<div className="footer__link left-triangle-blue"><a href="https://telegra.ph/FAQ--Frequently-Asked-Questions-05-31" className='footer_link-a'>FAQ</a></div>
-						<div className="footer__link left-triangle-blue"><a href="/" className='footer_link-a'>Log&Reg</a></div>
+						<div className="footer__link left-triangle-blue"><Link to="/about" className='footer_link-a'>About</Link></div>
+						<div className="footer__link left-triangle-blue"><Link to="https://t.me/thynkcommunity" className='footer_link-a'>Community</Link></div>
+						<div className="footer__link left-triangle-blue"><Link to="https://telegra.ph/FAQ--Frequently-Asked-Questions-05-31" className='footer_link-a'>FAQ</Link></div>
+						<div className="footer__link left-triangle-blue"><Link to="/login" className='footer_link-a'>Log&Reg</Link></div>
 					</div>
 					<div className="footer__copyright both-triangles-blue">
 						Designed & Developed By Artemii Tsipino

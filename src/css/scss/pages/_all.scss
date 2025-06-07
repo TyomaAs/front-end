@@ -1,7 +1,10 @@
 @import "for-all";
-@import "header";
-@import "footer";
+@import "components/header";
+@import "components/footer";
 @import "not-found";
 @import "home";
-@import "main";
+@import "course/all";
+@import "lesson/lecture/play";
+@import "lesson/game/play";
+@import "components/main";
 @import "login-register";

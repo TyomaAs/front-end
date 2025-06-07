@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 // import { ReactComponent as CatLogo } from '../assets/ico/cat-gray.svg'; // Import your logo image if needed
 import catLogo from '../assets/ico/cat-gray.svg';
@@ -9,12 +10,11 @@ import catLogo from '../assets/ico/cat-gray.svg';
 
 const Header = () => {
   const { user, login, logout } = useAuth();
-  // useAuth().login = {name: "Test User", email: "test@test.com"}
   // login({name: "Test User", email: "test@test.com"});
   
   useState(() => {
     // тільки для тесту, потім видалиш
-    login({ name: "Test User", email: "test@test.com" });
+    // login({ name: "Test User", email: "test@test.com" });
   });
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -31,26 +31,30 @@ const Header = () => {
           </div>
 				{user ? (
           // <div className="header__avatar"><CatLogo /></div>
-          <a href="/profile" className="header__avatar-link">
+          <Link to="/profile" className="header__avatar-link">
             <div className="header__avatar" title={"Login user: " + user.name}>
               <img src={catLogo} alt={catLogo}/>
               {/* <span>{user.name}</span> */}
             </div>
-          </a>
+          </Link>
         ) : (
-          <a href="/login" className="header__logreg" onClick={login}>Log & Reg</a>
+          <Link to="/login" className="header__logreg" onClick={login}>Log & Reg</Link>
         ) }
      
         
         <nav className={`nav ${isMenuOpen ? "nav--open" : ""}`}>
           <ul>
-            <li className="link"><a href="/">Main</a></li>
-            <li className="link"><a href="/course">Courses</a></li>
-						<li className="link"><a href="/profile">Profile</a></li>
+            <li className="link"><Link to={"/"}>Main</Link></li>
+            <li className="link"><Link to={"/course"}>Courses</Link></li>
+            {user ? (
+						<li className="link"><Link to={"/profile"}>Profile</Link></li>
+            ) : (
+              <li className="link"><Link to={"/login"}>Login</Link></li>
+            )}
 						<li className="link"><a href="https://t.me/thynkcommunity">Community</a></li>
-						<li className="link"><a href="/about">About</a></li>
+						<li className="link"><Link to={"/about"}>About</Link></li>
 						<li className="link"><a href="https://telegra.ph/FAQ--Frequently-Asked-Questions-05-31">FAQ</a></li>
-						<li className="link"><a href="/" onClick={logout}>Logout</a></li>
+						<li className="link"><Link to={"/"} onClick={logout}>Logout</Link></li>
           </ul>
         </nav>
 

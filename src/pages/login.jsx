@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
 // import { useAuth } from "../contexts/AuthContext";
 
 const Login = () => {
@@ -54,7 +55,7 @@ const Login = () => {
           </button>
         </form>
         <div className="logreg__hint">
-          Don’t have an account? <a className="logreg__link" href="/register" tabIndex={4}>Register now</a>
+          Don’t have an account? <Link className="logreg__link" to="/register" tabIndex={4}>Register now</Link>
           </div>
       </div>
     </div>

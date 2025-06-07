@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import { useAuth } from "../contexts/AuthContext";
+import {Link} from "react-router-dom";
  import triangle from "../assets/ico/triangleBlue.svg";
 
 const Login = () => {
@@ -91,7 +91,7 @@ const Login = () => {
           </button>
         </form>
         <div className="logreg__hint">
-          Already have an account? <a className="logreg__link" href="/login" tabIndex={7}>Login now</a>
+          Already have an account? <Link className="logreg__link" to="/login" tabIndex={7}>Login now</Link>
           </div>
       </div>
     </div>
