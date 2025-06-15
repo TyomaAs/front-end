@@ -1,0 +1,91 @@
+.card-small {
+	min-width: fit-content;
+	height: 100%;
+	max-width: 1200px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-self: center;
+	gap: 25px;
+	padding: 25px;
+	border-radius: 45px;
+	background-color: #444;
+	text-shadow: 4px 4px 4px #0004;
+	transition: all 0.3s ease-in-out;
+	flex: 1 1 auto;
+	&:hover {
+		box-shadow:
+			0 0 20px $c-secondary,
+			0 0 10px $c-secondary inset;
+		background-color: $c-main-opacity;
+		transform: scale(1.05);
+	}
+	&__link {
+		display: block;
+		max-width: 1200px;
+		width: 100%;
+		flex: 1 1 auto;
+	}
+	&__image {
+		flex: 0 0 auto;
+		width: 150px;
+		height: 150px;
+		border-radius: 20px;
+		overflow: hidden;
+		background-color: $c-secondary-element;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	&__title {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		flex: 1 1 100%;
+
+		font-size: $fs-xxxl;
+		color: $c-secondary;
+		font-weight: 400;
+		min-height: none;
+		vertical-align: center;
+	}
+	&__navigate {
+		flex: 0 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		min-height: 100%;
+	}
+	&__button {
+		max-width: 100px;
+		min-width: 100%;
+		width: 100%;
+		transition: all 0.3s ease;
+		&:hover {
+			font-size: 2.5em;
+			background-color: $c-secondary;
+			color: $c-main;
+			box-shadow:
+				0 0 20px $c-main,
+				0 0 10px $c-main inset;
+		}
+		&.back {
+			margin: 0 0 30px;
+			align-self: flex-start;
+			font-size: 1.2em;
+			max-width: fit-content;
+			&:hover {
+				font-size: 1.2em;
+				transform: scale(1.1);
+				background-color: $c-secondary;
+				color: $c-main;
+				box-shadow:
+					0 0 20px $c-main,
+					0 0 10px $c-main inset;
+			}
+		}
+	}
+}

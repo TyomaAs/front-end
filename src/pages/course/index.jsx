@@ -1,32 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+
 import CourseCard from "../../components/card.jsx"; // Adjust the import path as necessary
 import NotFound from '../../assets/ico/not-found.svg?url'; // Adjust the import path as necessary
+import { courses, user } from "../../data/data.js";
 
 
 const CoursesPage = () => {
-  const [courses, setCourses] = useState([
-    {
-      id: "1",
-      title: "Intro to React",
-      description: "Learn the basics of React, JSX and components!",
-      avatar: "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
-      creatorId: 1,
-      category: "frontend"
-    },
-    {
-      id: "2",
-      title: "Backend Magic",
-      description: "Dive into Node.js, Express and APIs.",
-      avatar: "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
-      creatorId: "3",
-      category: "backend"
-    },
-  ]);
+
 
   return (
     <div className="courses__page">
       <div className="container">
-      <h2 className="courses__title">Courses</h2>
+      <h1 className="courses__title">Courses</h1>
+      {(user.role === "teacher" || user.role === "admin") && <div className="courses__nav">
+        <Link to={`/course/create`} className="link brd card-small__button back">Create course</Link>
+
+        </div>}
       {courses.length === 0 ? (
 				<div className="courses__list not-found">
 					<CourseCard 
@@ -43,7 +34,7 @@ const CoursesPage = () => {
               id={course.id}
               title={course.title}
               description={course.description}
-              image={course.avatar}
+              image={course.image}
             />
           ))}
         </div>

@@ -1,0 +1,152 @@
+// src/data/data.js
+
+// user for login
+export const user = {
+  name: "Test User",
+  email: "test@test.com",
+  role: "admin",
+  id: 1,
+};
+
+export const courses = [
+  {
+    id: "1",
+    title: "Intro to React",
+    description: "Learn React basics",
+    image:
+      "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
+    idCreator: 1,
+    complited: true,
+  },
+  {
+    id: "2",
+    title: "Backend Magic",
+    description: "Node.js, Express",
+    image:
+      "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
+    idCreator: 2,
+    complited: true,
+  },
+];
+
+export const lessons = [
+  {
+    id: "1",
+    courseId: "1",
+    title: "JSX and Components",
+    image:
+      "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
+    description: "Some text to test",
+  },
+  { id: "2", courseId: "1", title: "State and Props" },
+  { id: "3", courseId: "2", title: "Intro to Node.js" },
+  {
+    id: "4",
+    courseId: "2",
+    title: "Building APIs",
+    image:
+      "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
+  },
+  {
+    id: "5",
+    courseId: "2",
+    title: "Test APIs",
+    image:
+      "https://i.pinimg.com/736x/5a/41/0a/5a410a3a52f621aae271e26f6c732512.jpg",
+  },
+];
+
+export const lecture = [
+  {
+    id: 2,
+    lessonId: 1,
+    order: 2,
+    type: "text",
+    content: "Hello this example paragraph for lecture",
+    image: null,
+  },
+  {
+    id: 1,
+    lessonId: 1,
+    order: 1,
+    type: "header",
+    content: "Hello this example title for lecture",
+    image: null,
+  },
+  {
+    id: 3,
+    lessonId: 1,
+    order: 3,
+    type: "quote",
+    content: "Progamming is love <3",
+    image: null,
+  },
+  {
+    id: 4,
+    lessonId: 1,
+    order: 4,
+    type: "image",
+    content:
+      "https://i.pinimg.com/474x/93/2b/f7/932bf794d8f336aaf1b64286b55c2d13.jpg",
+    image: null,
+  },
+  {
+    id: 5,
+    lessonId: 1,
+    order: 5,
+    type: "text",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    image: null,
+  },
+];
+
+export const gameBlocks = [
+  {
+    id: 1001,
+    lessonId: 1,
+    order: 1,
+    type: "fillBlank",
+    content: {
+      title: "Write the missing word;",
+      before: "int ",
+      after: "() { cout << 'Hello'; }",
+      answer: "main",
+    },
+  },
+  {
+    id: 1002,
+    lessonId: 1,
+    order: 2,
+    type: "singleChoice",
+    content: {
+      title: "Choose the correct keyword to define a function in Python:",
+      options: [
+        { id: 1, text: "func", correct: false },
+        { id: 2, text: "def", correct: true },
+        { id: 3, text: "function", correct: false },
+      ],
+    },
+  },
+
+  {
+    id: 1003,
+    lessonId: 1,
+    order: 3,
+    type: "matchPairs",
+    content: {
+      title: "Type of variable",
+      pairs: [
+        { left: "Integer", right: "int" },
+        { left: "String", right: "str" },
+        { left: "Boolean", right: "bool" },
+        { left: "Floating Point", right: "float" },
+      ],
+      correct: [3, 1, 2, 0], // тобто: "Integer" ↔ "float", "String" ↔ "str", і тд.
+      selected: [
+        // { left: "Integer", right: "float" },
+        // { left: "String", right: "str" },
+      ], // тестовий вибір користувача (можеш стерти якщо не треба)
+    },
+  },
+];

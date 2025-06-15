@@ -8,6 +8,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin: 20px 0 0 0;
 
 	.container {
 		position: relative;
@@ -20,6 +21,7 @@
 		max-height: 100%;
 		gap: 30px;
 		user-select: none;
+		text-shadow: 4px 4px 4px #0004;
 	}
 
 	&__title {
@@ -71,6 +73,9 @@
 		&:hover {
 			cursor: pointer;
 			transform: scale(1.15);
+			text-shadow:
+				4px 4px 10px $c-main,
+				0px 0px 10px $white;
 		}
 	}
 	&__socials {
@@ -149,6 +154,10 @@
 		flex-direction: column;
 		justify-content: start;
 		align-items: center;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			transform: scale(1.4);
+		}
 	}
 }
 .left-triangle-blue {

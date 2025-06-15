@@ -70,12 +70,13 @@ const Home = () => {
             <div className="home__text">
               <div className="home__text-title red">Free plan can use anyone :D</div>
               <div className="home__text-main">
-                Learning is better when shared 🫶<br/>
-                  Invite your friends, track each other’s progress, cheer for each other, and grow together.<br/>
-                  We’ve added team missions, friend leaderboards, and even chat support so you can feel the vibe of a true learning community 💬💪<br/>
-                  <br/>
-                  Even the hardest challenges become easier when you're not alone.<br/>
-                  Let’s grow smarter — together!
+                Unlock your potential — for free 🌟<br />
+                No matter where you’re from or what your goal is, our Free Plan is your open door to a world of learning.<br />
+                Join thousands of curious minds, explore new topics, and build real skills at your own pace 🧠💼<br />
+                No fees, no limits — just passion, progress, and pure potential 🚀<br />
+                <br />
+                You’ve got this. And we’ve got your back 💛<br />
+                Let’s level up, one lesson at a time 🏆<br />
                 </div>
             </div>
           </div>

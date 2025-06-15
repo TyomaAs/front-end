@@ -1,0 +1,271 @@
+.lecture {
+	width: 100%;
+	min-height: auto;
+	background-color: $c-secondary-element;
+	border-radius: 20px;
+	padding: 35px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 25px;
+	font-size: $fs-l;
+	&__block {
+		width: 100%;
+	}
+	&__form {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		align-items: center;
+		&-input {
+			background-color: #0000;
+			border: 2px solid #0000;
+			border-bottom: 2px solid $c-secondary;
+
+			outline: none;
+			color: $white;
+			padding: 10px 20px;
+			// border-radius: 20px;
+			width: 100%;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				border-bottom: 2px solid $c-main;
+			}
+			&:focus {
+				border: 2px solid $c-main;
+				border-radius: 20px 10px;
+			}
+			&::placeholder {
+				color: $white;
+				opacity: 0.8;
+			}
+			&.order {
+				max-width: 100px;
+			}
+			&.title-choise {
+				max-width: 300px;
+			}
+			&.miss-word {
+				padding: 1px;
+				border-radius: 0;
+				width: fit-content;
+				display: inline-block;
+
+				&:focus {
+					border: 3px #0000;
+					border-bottom: 3px solid $c-main;
+				}
+			}
+		}
+		&-label {
+			max-width: 60px;
+			width: 100%;
+			color: $c-secondary;
+			font-size: $fs-xl;
+		}
+		&-image {
+			max-width: 200px;
+			min-height: 200px;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			border-radius: 20px 10px;
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+	&__text {
+		color: $white;
+		font-family: $ff-main;
+	}
+	&__header {
+		font-size: $fs-xxl;
+		color: $c-secondary;
+		text-shadow: 4px 4px 4px #0004;
+	}
+	&__quote {
+		background-color: $background;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		padding: 35px;
+		border-radius: 20px;
+		font-size: $fs-xl;
+		color: $c-secondary;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			font-size: $fs-xxl;
+			box-shadow:
+				0 0 20px $c-main,
+				0 0 10px $c-main inset;
+			animation: shake 1s infinite;
+		}
+	}
+	&__image {
+		max-width: 300px;
+		max-height: 300px;
+		min-height: 300px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		justify-self: center;
+		overflow: hidden;
+		border-radius: 20px;
+		transition: all 0.3s ease-in-out;
+		img {
+			transition: all 0.3s ease-in-out;
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+		&:hover {
+			img {
+				object-fit: contain;
+				width: 400px;
+				max-height: 400px;
+			}
+
+			max-width: 50%;
+			max-height: 400px;
+		}
+	}
+	&__button {
+		justify-self: flex-end;
+		transition: all 0.3s ease-in-out;
+		background-color: $c-main;
+		&:hover {
+			font-size: inherit;
+		}
+	}
+	&__options {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	&__option-row {
+		display: flex;
+		align-items: center;
+		gap: 15px;
+		width: 100%;
+	}
+	&__match {
+		&-columns {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 10px;
+			flex-direction: row;
+			&.select {
+				justify-content: flex-start;
+			}
+		}
+		&-block {
+			display: flex;
+			flex-direction: column;
+			gap: 15px;
+		}
+		&-column {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			margin: 0 20px 0 0;
+			gap: 10px;
+		}
+		&-selected {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+			min-height: 100%;
+			gap: 20px;
+		}
+		&-pair {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			max-width: 200px;
+			position: relative;
+			padding: 5px 20px;
+			background-color: $background;
+			border-radius: 20px;
+			cursor: pointer;
+			transition: all 0.3s ease-in-out;
+			&.disabled {
+				opacity: 0.5;
+			}
+			&.selected {
+				box-shadow:
+					0px 0px 10px $c-main,
+					0px 0px 10px $c-main inset;
+				&:hover {
+					box-shadow:
+						0px 0px 5px red,
+						0px 0px 5px red inset;
+				}
+			}
+			&:hover {
+				box-shadow:
+					0px 0px 5px $c-main,
+					0px 0px 5px $c-main inset;
+			}
+			&-chosen {
+				display: flex;
+			}
+		}
+		&-index {
+			position: absolute;
+			top: -0.5rem;
+			left: 0;
+			color: $c-secondary;
+		}
+	}
+}
+.custom-radio {
+	width: 20px;
+	height: 20px;
+	border-radius: 8px;
+	border: 2px solid $c-secondary;
+	cursor: pointer;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+	flex-shrink: 0;
+
+	&.selected {
+		background-color: $c-main;
+		&::after {
+			content: "✓";
+			color: $white;
+			font-size: 14px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+.answer {
+	margin: 0;
+	max-width: fit-content;
+	width: fit-content;
+	min-width: fit-content;
+	padding: 5px 10px;
+	flex: 1 0 auto;
+	&:hover {
+		font-size: inherit;
+	}
+}

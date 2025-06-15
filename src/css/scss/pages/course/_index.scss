@@ -1,11 +1,12 @@
 .courses {
-	.container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
-	}
 	&__page {
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			gap: 30px;
+		}
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -15,7 +16,7 @@
 		font-size: $fs-xxxxl;
 		color: $c-secondary;
 		font-weight: 400;
-		margin: 40px 0;
+		margin: 40px 0 10px;
 		text-align: center;
 	}
 	&__list {
@@ -29,5 +30,22 @@
 		width: 100%;
 		max-width: 1200px;
 		margin: 0 0 50px 0;
+	}
+	&__lessons {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		gap: 30px;
+		width: 100%;
+		max-width: 1200px;
+	}
+	&__nav {
+		display: flex;
+		justify-content: flex-start;
+		gap: 20px;
+		align-items: center;
+		width: 100%;
+		flex: 1 1 auto;
 	}
 }

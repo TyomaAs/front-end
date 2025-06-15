@@ -8,7 +8,15 @@ import Login from "./pages/login.jsx";
 import Register from "./pages/register.jsx";
 import Profile from "./pages/profile.jsx";
 import NotFound from "./pages/not-found.jsx";
+import CoursePage from "./pages/course/show.jsx";
+import LessonPage from "./pages/lesson/show.jsx";
+import CourseEdit from "./pages/course/edit.jsx";
 import CourseIndex from "./pages/course/index.jsx";
+import GamePage from "./pages/lesson/run/game.jsx";
+import CreateCoursePage from "./pages/course/create.jsx";
+import LecturePage from "./pages/lesson/run/lecture.jsx";
+import LessonPageEdit from "./pages/lesson/edit/main.jsx";
+import CreateLessonPage from "./pages/lesson/create/main.jsx";
 
 import Header from "./components/header.jsx";
 import Footer from "./components/footer.jsx";
@@ -29,7 +37,31 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/register" element={<Register />} />
+
               <Route path="/course" element={<CourseIndex />} />
+              <Route path="/course/:id" element={<CoursePage />} />
+              <Route path="/course/:id/edit" element={<CourseEdit />} />
+              <Route path="/course/create" element={<CreateCoursePage />} />
+              <Route
+                path="/course/:id/lesson/:lessonId"
+                element={<LessonPage />}
+              />
+              <Route
+                path="/course/:id/lesson/create"
+                element={<CreateLessonPage />}
+              />
+              <Route
+                path="/course/:id/lesson/:lessonId/edit"
+                element={<LessonPageEdit />}
+              />
+              <Route
+                path="/course/:id/lesson/:lessonId/game"
+                element={<GamePage />}
+              />
+              <Route
+                path="/course/:id/lesson/:lessonId/lecture"
+                element={<LecturePage />}
+              />
             </Routes>
           </main>
           <Footer />
