@@ -1,8 +1,11 @@
-import React from "react";
-
 const GameFillBlank = ({ edit, content, onChange, onDelete, order, length, onOrderChange }) => {
   const handleChange = (field, value) => {
     onChange({ ...content, [field]: value });
+  };
+
+  // Нова функція для оновлення відповіді користувача
+  const handleUserAnswerChange = (e) => {
+    onChange({ ...content, userAnswer: e.target.value });
   };
 
   return (
@@ -20,8 +23,8 @@ const GameFillBlank = ({ edit, content, onChange, onDelete, order, length, onOrd
               placeholder="Order"
               value={order}
               onChange={(e) => onOrderChange?.(e.target.value)}
-							min={1}
-							max={length}
+              min={1}
+              max={length}
             />
             <input
               type="text"
@@ -52,22 +55,25 @@ const GameFillBlank = ({ edit, content, onChange, onDelete, order, length, onOrd
               onChange={(e) => handleChange("after", e.target.value)}
             />
             <button
-            type="button"
-            className="btn btn-danger mt-2"
-            onClick={onDelete}
-          >
-            Delete
-          </button>
+              type="button"
+              className="btn btn-danger mt-2"
+              onClick={onDelete}
+            >
+              Delete
+            </button>
           </>
         ) : (
           <div className="lecture__text">
-              {content.before}
-              <input 
-                type="text"
-                className="lecture__form-input miss-word"
-								style={{ width: `${(content.answer?.length || 5) + 2}ch` }}
-              />
-              {content.after}
+            {content.before}
+            <input
+              type="text"
+              className="lecture__form-input miss-word"
+              style={{ width: `${(content.answer?.length || 5) + 2}ch` }}
+              value={content.userAnswer || ""}
+              onChange={handleUserAnswerChange}
+              autoComplete="off"
+            />
+            {content.after}
           </div>
         )}
       </div>

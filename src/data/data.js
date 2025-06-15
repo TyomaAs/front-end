@@ -128,6 +128,20 @@ export const gameBlocks = [
       ],
     },
   },
+  {
+    id: 1004,
+    lessonId: 2,
+    order: 2,
+    type: "singleChoice",
+    content: {
+      title: "Choose the correct keyword to define a function in Python:",
+      options: [
+        { id: 1, text: "func", correct: false },
+        { id: 2, text: "def", correct: true },
+        { id: 3, text: "function", correct: false },
+      ],
+    },
+  },
 
   {
     id: 1003,
@@ -137,16 +151,13 @@ export const gameBlocks = [
     content: {
       title: "Type of variable",
       pairs: [
-        { left: "Integer", right: "int" },
-        { left: "String", right: "str" },
-        { left: "Boolean", right: "bool" },
-        { left: "Floating Point", right: "float" },
+        { left: "Integer", right: "bool" },
+        { left: "Boolean", right: "float" },
+        { left: "String", right: "int" },
+        { left: "Floating Point", right: "str" },
       ],
-      correct: [3, 1, 2, 0], // тобто: "Integer" ↔ "float", "String" ↔ "str", і тд.
-      selected: [
-        // { left: "Integer", right: "float" },
-        // { left: "String", right: "str" },
-      ], // тестовий вибір користувача (можеш стерти якщо не треба)
+      correct: [2, 0, 3, 1], // тобто: "Integer" ↔ "float", "String" ↔ "str", і тд.
+      selected: [],
     },
   },
 ];

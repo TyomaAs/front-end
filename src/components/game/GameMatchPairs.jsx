@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const GameMatchPairs = ({
   edit,
@@ -35,17 +35,37 @@ const GameMatchPairs = ({
   };
 
   const handleCorrectChange = (index, value) => {
-    const newCorrect = [...(content.correct || [])];
+  const newCorrect = [...(content.correct || [])];
+
+  // null означає, що користувач обрав "Select"
+  if (value === null) {
+    newCorrect[index] = null;
+  } else {
+    // уникаємо дублю
+    if (newCorrect.includes(value)) return;
     newCorrect[index] = value;
-    onChange({ ...content, correct: newCorrect });
-  };
+  }
+
+  onChange({ ...content, correct: newCorrect });
+};
+
 
   const pairs = content.pairs || [];
   const correct = content.correct || [];
 
-  const availableIndexes = () => {
-    return pairs.map((_, i) => i).filter((i) => !correct.includes(i));
-  };
+	const availableRightIndexes = (currentIndex) => {
+		const currentValue = correct[currentIndex];
+
+		const used = correct
+			.map((val, idx) => (idx !== currentIndex ? val : null))
+			.filter((val) => val !== null && val !== "");
+
+		return pairs
+			.map((_, i) => i)
+			.filter((i) => !used.includes(i) || i === currentValue);
+	};
+
+
 
   const handleSelectLeft = (index) => {
     if (selectedLeft === index) {
@@ -62,6 +82,8 @@ const GameMatchPairs = ({
     }
     setSelectedRight(index);
   };
+
+
 
   useEffect(() => {
     if (selectedLeft !== null && selectedRight !== null) {
@@ -81,15 +103,8 @@ const GameMatchPairs = ({
     }
   }, [selectedLeft, selectedRight]);
 
-  const isPairSelected = (pair) =>
-    selectedPairs.some(
-      (p) => p.left === pair.left && p.right === pair.right
-    );
-	const usedLefts = selectedPairs.map(p => p.left);
-const usedRights = selectedPairs.map(p => p.right);
-
   return (
-    <li className="lecture__block">
+	<li className={`lecture__block`}>
       <h3 className="lecture__header">
         {order}. {content.title || "Match the pairs"}
       </h3>
@@ -152,17 +167,19 @@ const usedRights = selectedPairs.map(p => p.right);
                   <div key={i} className="lecture__match-pair">
                     <span className="lecture__match-index">{String.fromCharCode(97 + i)}</span>
                     <select
-                      className="lecture__form-input"
-                      value={correct[i] ?? ""}
-                      onChange={(e) => handleCorrectChange(i, Number(e.target.value))}
-                    >
-                      <option value="">Select</option>
-                      {availableIndexes().map((idx) => (
-                        <option key={idx} value={idx}>
-                          {idx + 1}
-                        </option>
-                      ))}
-                    </select>
+											className="lecture__form-input"
+											value={correct[i] ?? ""}
+											onChange={(e) =>
+												handleCorrectChange(i, e.target.value === "" ? null : Number(e.target.value))
+											}
+										>
+											<option value="">Select</option>
+											{availableRightIndexes(i).map((idx) => (
+												<option key={idx} value={idx}>
+													{idx + 1}
+												</option>
+											))}
+										</select>
                   </div>
                 ))}
               </div>
@@ -208,34 +225,29 @@ const usedRights = selectedPairs.map(p => p.right);
 
   <div className="lecture__match-selected">
 		<div className="lecture__match-hint"> Your answers: </div>
-  {selectedPairs.map((pair, i) => {
-  const leftIndex = pairs.findIndex(p => p.left === pair.left);
-  const rightIndex = pairs.findIndex(p => p.right === pair.right);
-
-  const displayString = `${leftIndex + 1}:${String.fromCharCode(65 + rightIndex)}`; // 65 = 'A'
-
-  return (
-    <div key={i} className="lecture__match-pair-chosen">
-      <button
-        onClick={() => {
-          const newSelected = selectedPairs.filter((_, idx) => idx !== i);
-          setSelectedPairs(newSelected);
-          onChange({ ...content, selected: newSelected });
-        }}
-        className="link brd card-small__button answer"
-      >
-        {displayString}
-      </button>
-    </div>
-  );
-})}
-
-</div>
-
-
-</div>
-
-
+					{selectedPairs.map((pair, i) => {
+						const leftIndex = pairs.findIndex(p => p.left === pair.left);
+						const rightIndex = pairs.findIndex(p => p.right === pair.right);
+						
+						const displayString = `${String.fromCharCode(65 + rightIndex)}:${leftIndex + 1}`;
+						
+						return (
+							<div key={i} className="lecture__match-pair-chosen">
+							<button
+								onClick={() => {
+									const newSelected = selectedPairs.filter((_, idx) => idx !== i);
+									setSelectedPairs(newSelected);
+									onChange({ ...content, selected: newSelected });
+								}}
+								className="link brd card-small__button answer"
+							>
+								{displayString}
+							</button>
+						</div>
+							);
+						})}
+						</div>
+				</div>
         )}
       </div>
     </li>

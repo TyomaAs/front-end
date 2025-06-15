@@ -34,8 +34,10 @@ const GameSingleChoice = ({ edit, content, onChange, length, onOrderChange, onDe
   };
 
   const handleSelectOption = (id) => {
-    setSelectedId(id);
-  };
+		setSelectedId(id);
+		onChange({ ...content, selected: id });
+	};
+
 
   return (
     <li className="lecture__block">

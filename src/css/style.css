@@ -13238,6 +13238,7 @@ body.no-scroll {
   align-items: center;
   min-height: 100%;
   gap: 20px;
+  flex-wrap: wrap;
 }
 .lecture__match-pair {
   display: flex;
@@ -13273,6 +13274,15 @@ body.no-scroll {
   top: -0.5rem;
   left: 0;
   color: #e3e631;
+}
+.lecture__check {
+  font-size: 1.5rem;
+}
+.lecture__check.correct {
+  color: #41e631;
+}
+.lecture__check.uncorrect {
+  color: #e63131;
 }
 
 .custom-radio {

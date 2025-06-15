@@ -191,6 +191,7 @@
 			align-items: center;
 			min-height: 100%;
 			gap: 20px;
+			flex-wrap: wrap;
 		}
 		&-pair {
 			display: flex;
@@ -232,6 +233,15 @@
 			top: -0.5rem;
 			left: 0;
 			color: $c-secondary;
+		}
+	}
+	&__check {
+		font-size: $fs-xl;
+		&.correct {
+			color: $c-green;
+		}
+		&.uncorrect {
+			color: $c-red;
 		}
 	}
 }

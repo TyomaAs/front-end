@@ -10,6 +10,81 @@ const GamePage = () => {
   const [blocks, setBlocks] = useState([]);
   const [editMode, setEditMode] = useState(false);
   const [course, setCourse] = useState(null);
+	const [results, setResults] = useState([]);
+	const [checkResult, setCheckResult] = useState(null);
+
+
+
+	const checkBlockCorrect = (block) => {
+		const content = block.content || {};
+		switch (block.type) {
+			case "fillBlank":
+				if (!("userAnswer" in content)) return false;
+				return content.answer?.trim?.().toLowerCase?.() === content.userInput?.trim?.().toLowerCase?.();
+
+			case "singleChoice":
+				if (typeof content.selected !== "number") return false;
+				const selectedOption = content.options?.find(opt => opt.id === content.selected);
+				return selectedOption?.correct === true;
+
+			case "matchPairs":
+				const correct = content?.correct || [];
+				const selected = content?.selected || [];
+				const pairs = content?.pairs || [];
+				if (!Array.isArray(selected) || selected.length !== correct.length) return false;
+				return selected.every((pair, leftIndex) => {
+					const expectedRightIndex = correct[leftIndex];
+					const expectedRight = pairs[expectedRightIndex]?.right;
+					return pair.right === expectedRight;
+				});
+
+			default:
+				return false;
+		}
+	};
+	const checkAnswers = () => {
+		let correctCount = 0;
+		blocks.forEach(block => {
+			switch(block.type) {
+				case "fillBlank":
+					if ((block.content.userAnswer?.trim().toLowerCase() || "") === (block.content.correct?.trim().toLowerCase() || block.content.answer?.trim().toLowerCase())) {
+						correctCount++;
+					}
+					break;
+				case "singleChoice":
+					const selectedId = block.content.selected;
+					if (selectedId != null) {
+						const option = block.content.options.find(o => o.id === selectedId);
+						if (option && option.correct) {
+							correctCount++;
+						}
+					}
+					break;
+				case "matchPairs":
+					const pairs = block.content.pairs || [];
+					const selectedPairs = block.content.selected || [];
+					const correctIndexes = block.content.correct || [];
+
+					const isCorrect = correctIndexes.every((rightIdx, leftIdx) => {
+						const expectedPair = {
+							left: pairs[leftIdx]?.left,
+							right: pairs[rightIdx]?.right,
+						};
+						return selectedPairs.some(
+							(p) => p.left === expectedPair.left && p.right === expectedPair.right
+						);
+					});
+
+					if (isCorrect) correctCount++;
+					break;
+
+				default:
+					break;
+			}
+		});
+		setCheckResult({ correct: correctCount, total: blocks.length });
+	};
+
 
   useEffect(() => {
     const filtered = gameBlocks
@@ -31,15 +106,45 @@ const GamePage = () => {
   };
 
   const handleAddBlock = (type) => {
-    const newBlock = {
-      id: Date.now(),
-      lessonId: Number(lessonId),
-      order: blocks.length + 1,
-      type,
-      content: {}, // залежно від типу
-    };
-    setBlocks(prev => [...prev, newBlock]);
-  };
+		let defaultContent = {};
+		switch (type) {
+			case "fillBlank":
+				defaultContent = {
+					before: "",
+					after: "",
+					answer: "",
+					userAnswer: ""
+				};
+				break;
+			case "singleChoice":
+				defaultContent = {
+					title: "",
+					options: [],
+					selected: null
+				};
+				break;
+			case "matchPairs":
+				defaultContent = {
+					pairs: [],
+					correct: [],
+					selected: []
+				};
+				break;
+			default:
+				break;
+		}
+
+		const newBlock = {
+			id: Date.now(),
+			lessonId: Number(lessonId),
+			order: blocks.length + 1,
+			type,
+			content: defaultContent,
+		};
+
+		setBlocks(prev => [...prev, newBlock]);
+	};
+
 	const handleOrderChange = (index, newOrderRaw) => {
 		let newOrder = Number(newOrderRaw);
 		if (isNaN(newOrder) || newOrder < 1) newOrder = 1;
@@ -105,6 +210,20 @@ const GamePage = () => {
               return null;
           }
         })}
+				{!editMode && (
+					<button
+						className={`link brd card-small__button lecture__check ${
+							results.length > 0
+								? results.every(r => r)
+									? "correct"
+									: "uncorrect"
+								: ""
+						}`}
+						onClick={checkAnswers}
+					>
+					{checkResult ? `${checkResult.correct} / ${checkResult.total}` : "Check"}
+					</button>
+				)}
       </ul>
     </div>
   );
