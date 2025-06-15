@@ -8,6 +8,39 @@ export const user = {
   id: 1,
 };
 
+export const users = [
+  {
+    name: "Test User",
+    email: "test@test.com",
+    role: "admin",
+    id: 1,
+  },
+  {
+    id: 5,
+    name: "Admin Master",
+    email: "admin@example.com",
+    role: "admin",
+  },
+  {
+    id: 2,
+    name: "Tyoma Sunshine",
+    email: "tyoma@example.com",
+    role: "student",
+  },
+  {
+    id: 3,
+    name: "Lera Cutie",
+    email: "lera@example.com",
+    role: "teacher",
+  },
+  {
+    id: 4,
+    name: "Nusha Sparkle",
+    email: "nusha@example.com",
+    role: "student",
+  },
+];
+
 export const courses = [
   {
     id: "1",
@@ -63,7 +96,6 @@ export const lecture = [
     order: 2,
     type: "text",
     content: "Hello this example paragraph for lecture",
-    image: null,
   },
   {
     id: 1,
@@ -71,7 +103,6 @@ export const lecture = [
     order: 1,
     type: "header",
     content: "Hello this example title for lecture",
-    image: null,
   },
   {
     id: 3,
@@ -79,7 +110,6 @@ export const lecture = [
     order: 3,
     type: "quote",
     content: "Progamming is love <3",
-    image: null,
   },
   {
     id: 4,
@@ -88,7 +118,6 @@ export const lecture = [
     type: "image",
     content:
       "https://i.pinimg.com/474x/93/2b/f7/932bf794d8f336aaf1b64286b55c2d13.jpg",
-    image: null,
   },
   {
     id: 5,
@@ -97,7 +126,6 @@ export const lecture = [
     type: "text",
     content:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    image: null,
   },
 ];
 
@@ -109,9 +137,9 @@ export const gameBlocks = [
     type: "fillBlank",
     content: {
       title: "Write the missing word;",
-      before: "int ",
-      after: "() { cout << 'Hello'; }",
+      before: "#include<iostream>\n\nint ",
       answer: "main",
+      after: '() { std::cout << "Hello" << std::endl; }',
     },
   },
   {

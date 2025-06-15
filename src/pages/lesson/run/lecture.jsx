@@ -78,7 +78,7 @@ const LecturePage = () => {
 
   return (
     <div className="container mt-5 mb-5">
-			{lessons[lessonId] && <h1 className="courses__title">{lessons[lessonId].title}</h1>}
+			{lessons[lessonId] && <h1 className="courses__title">{lessons[lessonId-1].title}</h1>}
 
 
       <div className="courses__nav">

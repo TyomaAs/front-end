@@ -212,16 +212,17 @@ const GamePage = () => {
         })}
 				{!editMode && (
 					<button
-						className={`link brd card-small__button lecture__check ${
-							results.length > 0
-								? results.every(r => r)
-									? "correct"
-									: "uncorrect"
+						className={`link brd card-small__button lecture__check${
+								checkResult
+								? checkResult.correct === checkResult.total
+									? " correct"
+									: " uncorrect"
 								: ""
 						}`}
 						onClick={checkAnswers}
 					>
-					{checkResult ? `${checkResult.correct} / ${checkResult.total}` : "Check"}
+					{checkResult ? `${checkResult.correct} / ${checkResult.total} ` : "Check"}
+					{checkResult && checkResult.correct === checkResult.total && "Congratulation"}
 					</button>
 				)}
       </ul>

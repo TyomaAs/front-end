@@ -5,8 +5,9 @@ import "./css/style.css";
 import Home from "./pages/home.jsx";
 import About from "./pages/about.jsx";
 import Login from "./pages/login.jsx";
-import Register from "./pages/register.jsx";
+import Admin from "./pages/admin.jsx";
 import Profile from "./pages/profile.jsx";
+import Register from "./pages/register.jsx";
 import NotFound from "./pages/not-found.jsx";
 import CoursePage from "./pages/course/show.jsx";
 import LessonPage from "./pages/lesson/show.jsx";
@@ -32,6 +33,7 @@ function App() {
           <main className="content">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/admin" element={<Admin />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/login" element={<Login />} />
               <Route path="/about" element={<About />} />
